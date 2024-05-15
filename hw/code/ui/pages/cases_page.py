@@ -6,8 +6,5 @@ class CasesPage(BaseSectionsPage):
     locators = CasesPageLocators()
     url = 'https://ads.vk.com/cases'
 
-    def get_case_title(self) -> str:
-        return self.find(self.locators.CASE_TITLE).text
-
     def click_case_item(self):
-        self.click(self.locators.CASE_ITEM)
+        self.click(self.locators.CASE_BLOCK)

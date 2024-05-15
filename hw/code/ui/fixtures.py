@@ -2,17 +2,14 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from ui.pages.base_page import BasePage
-<<<<<<< HEAD
 from ui.pages.auth_page import AuthPage
 from ui.pages.cabinet_page import CabinetPage
 from ui.pages.audience_page import AudiencePage
-
-=======
 from ui.pages.main_page import MainPage
 from ui.pages.news_page import NewsPage
 from ui.pages.cases_page import CasesPage
 from ui.pages.events_page import EventsPage
->>>>>>> 597c0ae (add news test)
+from ui.pages.forum_page import ForumsPage
 import os
 from dotenv import load_dotenv
 
@@ -73,6 +70,12 @@ def cases_page(driver):
 def events_page(driver):
     driver.get(EventsPage.url)
     return EventsPage(driver=driver)
+
+
+@pytest.fixture
+def forum_page(driver):
+    driver.get(ForumsPage.url)
+    return ForumsPage(driver=driver)
 
 
 @pytest.fixture(scope='session')
