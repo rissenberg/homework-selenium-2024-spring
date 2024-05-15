@@ -17,15 +17,15 @@ class MainPageLocators(BasePageLocators):
     NAV_SERT_BUTTON = (By.CSS_SELECTOR, 'a[href="https://expert.vk.com/certification/"]')
 
 
-    SLIDER_TITLE = (By.XPATH, "//*[contains(@class, 'MainSlider_active__')]//p")
-    NONACTIVE_CIRCLE = (By.XPATH, "//*[contains(@class, 'Bullets_box__')]")
+    SLIDER_TITLE = (By.CLASS_NAME, "MainSlider_active__yA0Fr")
+    NONACTIVE_CIRCLE = (By.CLASS_NAME, "Bullets_center__WFrJa")
 
     @staticmethod
     def SLIDER_BUTTON(url):
         return By.XPATH, f"//a[contains(@class, 'MainSlider_button__') and contains(@href, '{url}')]"
 
-    SEE_ALL_LINK = (By.XPATH, "//*[contains(@class, 'styles_all__')]")
-    CASE_ITEM = (By.XPATH, "//*[contains(@class, 'Case_content__')]")
-    CASE_ITEM_TITLE = (By.XPATH, "//*[contains(@class, 'Case_title__')]")
+    SEE_ALL_LINK = (By.CLASS_NAME, "styles_all__wnH9i")
+    CASE_ITEM = (By.CLASS_NAME, "Case_content__oHhoP")
+    CASE_ITEM_TITLE = (By.CLASS_NAME, "Case_title__JAisY")
 
-    WEBINAR_ITEM = (By.XPATH, "//*[contains(@class, 'GetStarted_wrapper__')]")
+    WEBINAR_ITEM = (By.CLASS_NAME, "GetStarted_wrapper__cTNLj")
