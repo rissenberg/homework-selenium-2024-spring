@@ -20,7 +20,7 @@ class AudiencePage(BasePage):
         create_button = wait.until(EC.visibility_of_element_located(self.locators.CREATE_AUDIENCE_BUTTON))
         create_button.click()
 
-    def create_audience_modal_page_became_visible(self) -> bool:
+    def create_audience_modal_page_is_visible(self) -> bool:
         return self.is_visible(self.locators.CREATE_AUDIENCE_MODAL_PAGE)
 
     def get_default_audience_name(self):
@@ -38,13 +38,20 @@ class AudiencePage(BasePage):
     def click_add_source_button(self):
         self.click(self.locators.ADD_SOURCE_BUTTON)
 
-    def add_source_modal_page_became_visible(self) -> bool:
+    def add_source_modal_page_is_visible(self) -> bool:
         return self.is_visible(self.locators.ADD_SOURCE_MODAL_PAGE)
 
     def select_source(self, source_name):
         wait = self.wait(10)
         source_item = wait.until(EC.visibility_of_element_located(self.locators.SOURCE_ITEM(source_name)))
         source_item.click()
+
+    def get_source_card_content(self) -> str:
+        return self.find(self.locators.SOURCE_CARD_CONTENT).text
+
+    def get_created_audience_title(self) -> str:
+        return self.find(self.locators.CREATED_AUDIENCE_TITLE).text
+
 
     def enter_key_phrases(self, key_phrase):
         key_phrases_input = self.find(self.locators.KEY_PHRASES_INPUT)
@@ -56,9 +63,3 @@ class AudiencePage(BasePage):
             self.click(self.locators.MODAL_PAGE_SUBMIT_BUTTON)
         except TimeoutException:
             pass
-
-    def get_source_card_content(self) -> str:
-        return self.find(self.locators.SOURCE_CARD_CONTENT).text
-
-    def get_created_audience_title(self) -> str:
-        return self.find(self.locators.CREATED_AUDIENCE_TITLE).text

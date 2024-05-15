@@ -4,6 +4,6 @@ import time
 
 
 class TestRegistration(BaseCase):
-    def test_first(self):
-        time.sleep(15)
+    def test_default(self):
+        time.sleep(5)
         assert 1 == 1
