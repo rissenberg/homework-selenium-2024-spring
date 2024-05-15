@@ -6,6 +6,8 @@ from ui.pages.auth_page import AuthPage
 from ui.pages.cabinet_page import CabinetPage
 from ui.pages.audience_page import AudiencePage
 from ui.pages.settings_page import SettingsPage
+from ui.pages.budget_page import BudgetPage
+
 
 import os
 from dotenv import load_dotenv
@@ -80,3 +82,8 @@ def audience_page(driver, cabinet_page):
 def settings_page(driver, cabinet_page):
     driver.get(SettingsPage.url)
     return SettingsPage(driver=driver)
+
+@pytest.fixture
+def budget_page(driver, cabinet_page):
+    driver.get(BudgetPage.url)
+    return BudgetPage(driver=driver)
