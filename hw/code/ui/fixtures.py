@@ -5,6 +5,7 @@ from ui.pages.base_page import BasePage
 from ui.pages.auth_page import AuthPage
 from ui.pages.cabinet_page import CabinetPage
 from ui.pages.audience_page import AudiencePage
+from ui.pages.settings_page import SettingsPage
 
 import os
 from dotenv import load_dotenv
@@ -73,3 +74,9 @@ def cabinet_page(driver, credentials_with_cabinet, auth_page):
 def audience_page(driver, cabinet_page):
     driver.get(AudiencePage.url)
     return AudiencePage(driver=driver)
+
+
+@pytest.fixture
+def settings_page(driver, cabinet_page):
+    driver.get(SettingsPage.url)
+    return SettingsPage(driver=driver)
