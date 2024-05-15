@@ -99,9 +99,9 @@ def auth_page(driver):
 
 
 @pytest.fixture
-def cabinet_page(driver, credentials_with_cabinet, auth_page):
+def cabinet_page(driver, credentials_with_auth, auth_page):
     driver.get(CabinetPage.url)
-    auth_page.login(*credentials_with_cabinet)
+    auth_page.login(*credentials_with_auth)
     return CabinetPage(driver=driver)
 
 
