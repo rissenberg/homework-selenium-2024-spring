@@ -1,5 +1,6 @@
 from selenium.common import TimeoutException
 from selenium.webdriver import Keys
+from selenium.webdriver.support import expected_conditions as EC
 from ui.pages.base_page import BasePage
 from ui.locators.audience_page_locators import AudiencePageLocators
 from datetime import datetime
@@ -15,8 +16,9 @@ class AudiencePage(BasePage):
     MAX_LENGTH_OF_NAME = 255
 
     def click_create_audience_button(self):
-        time.sleep(5)
-        self.click(self.locators.CREATE_AUDIENCE_BUTTON)
+        wait = self.wait(10)
+        create_button = wait.until(EC.visibility_of_element_located(self.locators.CREATE_AUDIENCE_BUTTON))
+        create_button.click()
 
     def create_audience_modal_page_became_visible(self) -> bool:
         return self.is_visible(self.locators.CREATE_AUDIENCE_MODAL_PAGE)
@@ -40,8 +42,9 @@ class AudiencePage(BasePage):
         return self.is_visible(self.locators.ADD_SOURCE_MODAL_PAGE)
 
     def select_source(self, source_name):
-        time.sleep(1)
-        self.click(self.locators.SOURCE_ITEM(source_name))
+        wait = self.wait(10)
+        source_item = wait.until(EC.visibility_of_element_located(self.locators.SOURCE_ITEM(source_name)))
+        source_item.click()
 
     def enter_key_phrases(self, key_phrase):
         key_phrases_input = self.find(self.locators.KEY_PHRASES_INPUT)
