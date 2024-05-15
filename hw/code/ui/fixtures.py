@@ -79,13 +79,13 @@ def forum_page(driver):
 
 
 @pytest.fixture(scope='session')
-def credentials_without_cabinet():
+def credentials_without_auth():
     load_dotenv()
-    return os.getenv('LOGIN_WITHOUT_CABINET'), os.getenv('PASSWORD_WITHOUT_CABINET')
+    return os.getenv('LOGIN_WITHOUT_AUTH'), os.getenv('PASSWORD_WITHOUT_AUTH')
 
 
 @pytest.fixture(scope='session')
-def credentials_with_cabinet():
+def credentials_with_auth():
     load_dotenv()
     return os.getenv('LOGIN'), os.getenv('PASSWORD')
 

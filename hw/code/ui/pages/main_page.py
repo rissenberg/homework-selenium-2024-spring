@@ -9,33 +9,43 @@ class MainPage(BasePage):
     def click_vk_ads_logo(self):
         self.click(self.locators.VK_ADS_LOGO)
 
-    def click_nav_item(self, item_name: str):
-        self.click(self.locators.NAV_ITEM(item_name))
+    def click_nav_auth_button(self):
+        self.click(self.locators.NAV_AUTH_BUTTON)
 
-    def click_nav_cabinet_button(self):
-        self.click(self.locators.NAV_CABINET_BUTTON)
+    def click_nav_news_button(self):
+        self.click(self.locators.NAV_NEWS_BUTTON)
 
-    def open_education_dropdown(self):
-        self.hover(self.locators.NAV_ITEM('Обучение'))
+    def click_nav_case_button(self):
+        self.click(self.locators.NAV_CASE_BUTTON)
+        
+    def click_nav_forum_button(self):
+        self.click(self.locators.NAV_FORUM_BUTTON)
+        
+    def click_nav_partner_button(self):
+        self.click(self.locators.NAV_PARTNER_BUTTON)
+        
+    def click_nav_help_button(self):
+        self.click(self.locators.NAV_HELP_BUTTON)
+        
+    def click_nav_teach_button(self):
+        self.click(self.locators.NAV_TEACH_BUTTON)
 
-    def education_dropdown_contain_items(self, item_names: list) -> bool:
-        for item_name in item_names:
-            item = self.find(self.locators.NAV_EDUCATION_DROPDOWN_ITEM(item_name))
-            if item is None:
-                return False
+    def click_nav_mat_button(self):
+        self.click(self.locators.NAV_MAT_BUTTON)
 
-        return True
-
-    def click_education_dropdown_item(self, item_name: str):
-        self.click(self.locators.NAV_EDUCATION_DROPDOWN_ITEM(item_name))
-
+    def click_nav_event_button(self):
+        self.click(self.locators.NAV_EVENT_BUTTON)
+        
+    def click_nav_sert_button(self):
+        self.click(self.locators.NAV_SERT_BUTTON)
+ 
     def get_slide_title(self) -> str:
         return self.find(self.locators.SLIDER_TITLE).text
 
     def change_slide(self):
         self.click(self.locators.NONACTIVE_CIRCLE)
 
-    def click_slider_cabinet_button(self):
+    def click_slider_auth_button(self):
         self.click(self.locators.SLIDER_BUTTON('/hq'))
 
     def click_slider_bonus_button(self):
