@@ -11,6 +11,7 @@ from ui.pages.cases_page import CasesPage
 from ui.pages.events_page import EventsPage
 from ui.pages.forum_page import ForumsPage
 from ui.pages.campaigns_page import CampaignsPage
+from ui.pages.settings_page import SettingsPage
 
 import os
 from dotenv import load_dotenv
@@ -113,3 +114,9 @@ def audience_page(driver, cabinet_page):
 def campaigns_page(driver, cabinet_page):
     driver.get(CampaignsPage.url)
     return CampaignsPage(driver=driver)
+
+
+@pytest.fixture
+def settings_page(driver, cabinet_page):
+    driver.get(SettingsPage.url)
+    return SettingsPage(driver=driver)
