@@ -15,7 +15,7 @@ class AuthPage(BasePage):
         login_input.send_keys(login)
 
         self.click(self.locators.MAIL_RU_NEXT_BUTTON)
-        time.sleep(1)
+        time.sleep(2)
 
         password_input = self.find(self.locators.MAIL_RU_PASSWORD)
         password_input.clear()
