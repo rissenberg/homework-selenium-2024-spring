@@ -10,6 +10,8 @@ from ui.pages.news_page import NewsPage
 from ui.pages.cases_page import CasesPage
 from ui.pages.events_page import EventsPage
 from ui.pages.forum_page import ForumsPage
+from ui.pages.campaigns_page import CampaignsPage
+
 import os
 from dotenv import load_dotenv
 
@@ -106,3 +108,8 @@ def cabinet_page(driver, credentials_with_cabinet, auth_page):
 def audience_page(driver, cabinet_page):
     driver.get(AudiencePage.url)
     return AudiencePage(driver=driver)
+
+@pytest.fixture
+def campaigns_page(driver, cabinet_page):
+    driver.get(CampaignsPage.url)
+    return CampaignsPage(driver=driver)
