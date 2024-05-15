@@ -14,9 +14,6 @@
 ```
 LOGIN=""
 PASSWORD=""
-
-LOGIN_WITHOUT_CABINET=""
-PASSWORD_WITHOUT_CABINET=""
 ```
 
 ## Запуск
