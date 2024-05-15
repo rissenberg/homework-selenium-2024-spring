@@ -5,6 +5,11 @@ from ui.pages.base_page import BasePage
 from ui.pages.auth_page import AuthPage
 from ui.pages.cabinet_page import CabinetPage
 from ui.pages.audience_page import AudiencePage
+from ui.pages.main_page import MainPage
+from ui.pages.news_page import NewsPage
+from ui.pages.cases_page import CasesPage
+from ui.pages.events_page import EventsPage
+from ui.pages.forum_page import ForumsPage
 from ui.pages.campaigns_page import CampaignsPage
 
 import os
@@ -21,7 +26,7 @@ def driver(config):
     if selenoid:
         capabilities = {
             'browserName': 'chrome',
-            'version': '123.0',
+            'version': '118.0',
         }
         if vnc:
             capabilities['enableVNC'] = True
@@ -46,14 +51,43 @@ def base_page(driver):
     return BasePage(driver=driver)
 
 
+@pytest.fixture
+def main_page(driver):
+    return MainPage(driver=driver)
+
+
+@pytest.fixture
+def news_page(driver):
+    driver.get(NewsPage.url)
+    return NewsPage(driver=driver)
+
+
+@pytest.fixture
+def cases_page(driver):
+    driver.get(CasesPage.url)
+    return CasesPage(driver=driver)
+
+
+@pytest.fixture
+def events_page(driver):
+    driver.get(EventsPage.url)
+    return EventsPage(driver=driver)
+
+
+@pytest.fixture
+def forum_page(driver):
+    driver.get(ForumsPage.url)
+    return ForumsPage(driver=driver)
+
+
 @pytest.fixture(scope='session')
-def credentials_without_cabinet():
+def credentials_without_auth():
     load_dotenv()
-    return os.getenv('LOGIN_WITHOUT_CABINET'), os.getenv('PASSWORD_WITHOUT_CABINET')
+    return os.getenv('LOGIN_WITHOUT_AUTH'), os.getenv('PASSWORD_WITHOUT_AUTH')
 
 
 @pytest.fixture(scope='session')
-def credentials_with_cabinet():
+def credentials_with_auth():
     load_dotenv()
     return os.getenv('LOGIN'), os.getenv('PASSWORD')
 
