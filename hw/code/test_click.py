@@ -5,5 +5,5 @@ import time
 
 class TestRegistration(BaseCase):
     def test_first(self):
-        time.sleep(15)
+        time.sleep(1)
         assert 1 == 1
