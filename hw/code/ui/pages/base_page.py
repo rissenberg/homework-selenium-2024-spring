@@ -1,6 +1,7 @@
 import time
 
 import allure
+from selenium.common import TimeoutException
 from selenium.webdriver.remote.webelement import WebElement
 from ui.locators import basic_locators
 from selenium.webdriver.support.wait import WebDriverWait
@@ -39,3 +40,17 @@ class BasePage(object):
         self.find(locator, timeout=timeout)
         elem = self.wait(timeout).until(EC.element_to_be_clickable(locator))
         elem.click()
+
+    def become_invisible(self, locator, timeout=None):
+        try:
+            self.wait(timeout).until(EC.invisibility_of_element(locator))
+            return True
+        except TimeoutException:
+            return False
+
+    def become_visible(self, locator, timeout=None):
+        try:
+            self.wait(timeout).until(EC.visibility_of_element_located(locator))
+            return True
+        except TimeoutException:
+            return False
