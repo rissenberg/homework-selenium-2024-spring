@@ -82,3 +82,57 @@ class SettingsPage(BasePage):
     def click_cancel_button(self):
         self.click(self.locators.CANCEL_BUTTON)
 
+    def click_user_language_list(self):
+        self.click(self.locators.OPEN_USER_LANGUAGE_LIST)
+
+    def user_language_list_is_visible(self) -> bool:
+        return self.is_visible(self.locators.USER_LANGUAGE_LIST)
+    
+    def click_more_about_access(self):
+        self.click(self.locators.MORE_ABOUT_ACCESS_LOCATOR)
+
+    def click_common(self):
+        self.click(self.locators.COMMON)
+
+    def click_notifications(self):
+        self.click(self.locators.NOTIFICATIONS)
+
+    def click_access_rights(self):
+        self.click(self.locators.ACCESS_RIGHTS)
+
+    def click_changes_history(self):
+        self.click(self.locators.CHANGES_HISTORY)
+
+    def click_add_cabinet_button(self):
+        self.click(self.locators.ADD_CABINET_BUTTON)
+
+    def click_close_add_cabinet_button(self):
+        self.click(self.locators.CLOSE_ADD_CABINET_BUTTON)
+
+    def add_cabinet_window_is_visible(self):
+        return self.is_visible(self.locators.ADD_CABINET_WINDOW)
+    
+    def enter_add_cabinet_id(self, id: str):
+        email_input = self.find(self.locators.ADD_CABINET_ID_INPUT)
+        email_input.clear()
+        email_input.send_keys(id)
+        email_input.send_keys(Keys.ENTER)
+
+    def get_add_cabinet_id_input(self) -> str:
+        return self.find(self.locators.ADD_CABINET_ID_INPUT).text
+
+    # def write_add_account_id_input(self, input_vk_id):
+    #     input_vk_id.send_keys(self.locators.INPUT_ADD_ACCOUNT_VK_ID)
+
+    # def get_add_account_input(self, input_vk_id):
+    #     return input_vk_id.get_attribute(self.locators.INPUT_ATTRIBUTE)
+
+    def get_add_cabinet_empty_field_error(self):
+        return self.find(self.locators.ADD_CABINET_ID_ERROR)
+
+    def click_add_cabinet_save_id_button(self):
+        self.click(self.locators.ADD_CABINET_SAVE_ID_BUTTON)
+
+
+
+

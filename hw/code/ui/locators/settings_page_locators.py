@@ -24,3 +24,28 @@ class SettingsPageLocators(BasePageLocators):
 
     DELETE_CABINET_BUTTON = (By.XPATH, "//*[contains(@class, 'vkuiButton__content') and text()='Удалить кабинет']")
     DELETE_CABINET_MODAL_PAGE = (By.XPATH, "//*[contains(@class, 'DeleteAccountConfirmModal_')]")
+
+    USER_LANGUAGE_LIST = (By.XPATH, "//*[contains(@class, 'vkuiCustomSelectInput__title') and text()='RU']")
+    OPEN_USER_LANGUAGE_LIST = (By.XPATH, "//*[@role='combobox' and @aria-expanded='false']")
+
+    MORE_ABOUT_ACCESS_LOCATOR = (By.CSS_SELECTOR, 'a[href="https://ads.vk.com/help/articles/help_api"]')
+
+    COMMON = (By.XPATH, "//*[contains(@class, 'vkuiTabsItem__label') and text()='Общие']")
+
+    NOTIFICATIONS = (By.XPATH, "//*[contains(@class, 'vkuiTabsItem__label') and text()='Уведомления']")
+
+    ACCESS_RIGHTS = (By.XPATH, "//*[contains(@class, 'vkuiTabsItem__label') and text()='Права доступа']")
+
+    CHANGES_HISTORY = (By.XPATH, "//*[contains(@class, 'vkuiTabsItem__label') and text()='История изменений']")
+
+    ADD_CABINET_BUTTON = (By.XPATH, "//*[contains(@class, 'vkuiButton__content') and text()='Добавить кабинет']")
+
+    CLOSE_ADD_CABINET_BUTTON = (By.XPATH, "//*[contains(@class, 'vkuiModalDismissButton')]")
+
+    ADD_CABINET_WINDOW = (By.XPATH, "//*[contains(@class, 'vkuiTypography') and text()='Добавление кабинета']")
+
+    ADD_CABINET_ID_INPUT = (By.XPATH, "//*[contains(@class, 'vkuiInput__el')]")
+
+    ADD_CABINET_SAVE_ID_BUTTON = (By.XPATH, "//*[contains(@class, 'vkuiButton__content') and text()='Сохранить']")
+
+    ADD_CABINET_ID_ERROR = (By.XPATH, "//*[@role='alert' and text()='Обязательное поле']")
