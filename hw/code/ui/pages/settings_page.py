@@ -16,7 +16,7 @@ class SettingsPage(BasePage):
     ERROR_INVALID_EMAIL = 'Некорректный email адрес'
 
     def save_button_and_cancel_button_is_visible(self) -> bool:
-        return (self.is_visible(self.locators.SAVE_BUTTON) and self.is_visible(self.locators.CANCEL_BUTTON))
+        return self.is_visible(self.locators.SAVE_BUTTON) and self.is_visible(self.locators.CANCEL_BUTTON)
 
     def enter_phone_number(self, phone_number: str):
         phone_number_input = self.find(self.locators.PHONE_NUMBER_INPUT)

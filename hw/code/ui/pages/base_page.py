@@ -67,7 +67,7 @@ class BasePage(object):
         elem = self.wait(timeout).until(ec.presence_of_element_located(locator))
         ActionChains(self.driver).move_to_element(elem).perform()
 
-    def became_invisible(self, locator, timeout=None):
+    def is_not_visible(self, locator, timeout=None):
         try:
             self.wait(timeout).until(ec.invisibility_of_element(locator))
             return True
@@ -78,7 +78,7 @@ class BasePage(object):
         assert len(self.driver.window_handles) > 1
         self.driver.switch_to.window(self.driver.window_handles[1])
         
-    def became_visible(self, locator, timeout=None):
+    def is_visible(self, locator, timeout=None):
         try:
             self.wait(timeout).until(ec.visibility_of_element_located(locator))
             return True

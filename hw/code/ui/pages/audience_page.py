@@ -52,14 +52,12 @@ class AudiencePage(BasePage):
     def get_created_audience_title(self) -> str:
         return self.find(self.locators.CREATED_AUDIENCE_TITLE).text
 
-
     def enter_key_phrases(self, key_phrase):
         key_phrases_input = self.find(self.locators.KEY_PHRASES_INPUT)
         key_phrases_input.clear()
         key_phrases_input.send_keys(key_phrase)
 
     def click_modal_page_submit_button(self):
-        try:
-            self.click(self.locators.MODAL_PAGE_SUBMIT_BUTTON)
-        except TimeoutException:
-            pass
+        wait = self.wait(10)
+        elem = wait.until(EC.visibility_of_element_located(self.locators.MODAL_PAGE_SUBMIT_BUTTON))
+        elem.click()
