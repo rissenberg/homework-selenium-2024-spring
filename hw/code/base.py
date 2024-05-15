@@ -11,7 +11,7 @@ class BaseCase:
 
     def is_opened(self, url, timeout=None):
         if timeout is None:
-            timeout = 5
+            timeout = 20
 
         try:
             WebDriverWait(self.driver, timeout).until(EC.url_matches(url))

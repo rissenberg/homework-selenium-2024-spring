@@ -5,10 +5,13 @@ from ui.locators.basic_locators import BasePageLocators
 class CabinetPageLocators(BasePageLocators):
     LOGO_LOCATOR = (By.CLASS_NAME, 'header_left__cv9bp')
 
+    OVERVIEW_LOCATOR = (By.CSS_SELECTOR, 'a[href="/hq/overview"]')
     CAMPAIGN_LOCATOR = (By.CSS_SELECTOR, 'a[href="/hq/dashboard"]')
     AUDIENCE_LOCATOR = (By.CSS_SELECTOR, 'a[href="/hq/audience"]')
     BUDGET_LOCATOR = (By.CSS_SELECTOR, 'a[href="/hq/budget"]')
+
     EDUCATION_LOCATOR = (By.CSS_SELECTOR, '[data-testid="onboarding-button"]')
+    EDUCATION_CLOSE_LOCATOR = (By.CSS_SELECTOR, '[aria-label="Закрыть"]')
 
     COMMERCE_CENTRE_LOCATOR = (By.CSS_SELECTOR, 'a[href="/hq/ecomm/catalogs"]')
     SITES_LOCATOR = (By.CSS_SELECTOR, 'a[href="/hq/pixels"]')
@@ -26,6 +29,7 @@ class CabinetPageLocators(BasePageLocators):
     QUESTION_LOCATOR = (By.XPATH, f'//span[text()="Задать вопрос"]')
 
     BALANCE_BUTTON = (By.XPATH, "//*[contains(@class, 'balance_balance__')]")
+    BALANCE_MODAL_PAGE = (By.ID, "_modal_17")
 
     NOTIFICATIONS_BUTTON = (By.XPATH, "//*[contains(@class, 'BellNotifications_buttonWrapper__')]")
     NOTIFICATIONS_MODAL_PAGE = (By.XPATH, "//*[contains(@class, 'BellNotificationsContent_card__')]")

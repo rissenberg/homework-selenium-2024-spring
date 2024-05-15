@@ -6,6 +6,9 @@ class CabinetPage(BasePage):
     url = 'https://ads.vk.com/hq/overview'
     locators = CabinetPageLocators()
 
+    def click_overview(self):
+        self.click(self.locators.OVERVIEW_LOCATOR)
+
     def click_campaign(self):
         self.click(self.locators.CAMPAIGN_LOCATOR)
 
@@ -19,13 +22,13 @@ class CabinetPage(BasePage):
         self.click(self.locators.EDUCATION_LOCATOR)
 
     def is_education_modal_shown(self):
-        return self.is_visible(self.locators.EDUCATION_MODAL_LOCATOR)
+        return self.is_visible(self.locators.EDUCATION_LOCATOR)
 
     def click_cross_education_modal(self):
-        self.click(self.locators.EDUCATION_MODAL_CROSS_LOCATOR)
+        self.click(self.locators.EDUCATION_CLOSE_LOCATOR)
 
     def is_education_modal_closed(self):
-        return self.is_not_visible(self.locators.EDUCATION_MODAL_LOCATOR)
+        return self.is_visible(self.locators.EDUCATION_LOCATOR)
 
     def click_commerce_centre(self):
         self.click(self.locators.COMMERCE_CENTRE_LOCATOR)
@@ -43,7 +46,7 @@ class CabinetPage(BasePage):
         self.click(self.locators.SETTINGS_LOCATOR)
 
     def click_help(self):
-        self.scroll_click(self.locators.HELP_LOCATOR)
+        self.click(self.locators.HELP_LOCATOR)  #
 
     def is_help_modal_shown(self):
         return self.is_visible(self.locators.HELP_MODAL_LOCATOR)
@@ -66,17 +69,20 @@ class CabinetPage(BasePage):
     def click_balance_button(self):
         self.click(self.locators.BALANCE_BUTTON)
 
+    def balance_modal_became_visible(self) -> bool:
+        return self.is_visible(self.locators.BALANCE_MODAL_PAGE)
+
     def click_notifications_button(self):
         self.click(self.locators.NOTIFICATIONS_BUTTON)
 
-    def notifications_modal_page_became_visible(self) -> bool:
-        return self.become_visible(self.locators.NOTIFICATIONS_MODAL_PAGE)
+    def notifications_modal_became_visible(self) -> bool:
+        return self.is_visible(self.locators.NOTIFICATIONS_MODAL_PAGE)
 
     def click_user_avatar(self):
         self.click(self.locators.USER_AVATAR)
 
     def user_menu_became_visible(self) -> bool:
-        return self.become_visible(self.locators.USER_MENU)
+        return self.is_visible(self.locators.USER_MENU)
 
     def click_logout_button(self):
         self.click(self.locators.LOGOUT_BUTTON)

@@ -41,16 +41,20 @@ class BasePage(object):
         elem = self.wait(timeout).until(EC.element_to_be_clickable(locator))
         elem.click()
 
-    def become_invisible(self, locator, timeout=None):
+    def is_not_visible(self, locator, timeout=None):
         try:
-            self.wait(timeout).until(EC.invisibility_of_element(locator))
-            return True
-        except TimeoutException:
+            self.wait(timeout).until(EC.visibility_of_element(locator))
             return False
+        except TimeoutException:
+            return True
 
-    def become_visible(self, locator, timeout=None):
+    def is_visible(self, locator, timeout=None):
         try:
             self.wait(timeout).until(EC.visibility_of_element_located(locator))
             return True
         except TimeoutException:
             return False
+
+    def switch_to_new_tab(self):
+        assert len(self.driver.window_handles) > 1
+        self.driver.switch_to.window(self.driver.window_handles[1])
