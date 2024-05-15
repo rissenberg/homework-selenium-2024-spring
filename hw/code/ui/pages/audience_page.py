@@ -43,6 +43,7 @@ class AudiencePage(BasePage):
 
     def select_source(self, source_name):
         wait = self.wait(10)
+        time.sleep(1)
         source_item = wait.until(EC.visibility_of_element_located(self.locators.SOURCE_ITEM(source_name)))
         source_item.click()
 
