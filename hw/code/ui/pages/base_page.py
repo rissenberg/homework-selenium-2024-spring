@@ -1,6 +1,6 @@
 import time
 
-import allure
+import allure # type: ignore
 from selenium.common import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.remote.webelement import WebElement
@@ -82,5 +82,11 @@ class BasePage(object):
         try:
             self.wait(timeout).until(ec.visibility_of_element_located(locator))
             return True
+        except TimeoutException:
+            return False
+
+    def is_element_not_present(self, locator, timeout=None):
+        try:
+            return self.wait(timeout).until(ec.invisibility_of_element_located(locator))
         except TimeoutException:
             return False

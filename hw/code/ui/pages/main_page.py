@@ -62,3 +62,12 @@ class MainPage(BasePage):
 
     def click_webinar_item(self):
         self.scroll_and_click(self.locators.WEBINAR_ITEM)
+
+    def click_more_info(self):
+        self.scroll_and_click(self.locators.BUTTON_MORE_DETAILS)
+
+    def find_text_offerContent(self):
+        return self.find(self.locators.OFFER_CONTENT).text
+
+    def find_text_summary_title(self):
+        return self.find(self.locators.SUMMARY_TEXT).text

@@ -18,4 +18,3 @@ class BaseCase:
             return True
         except:
             raise Exception(f'{url} did not open in {timeout} sec, current url {self.driver.current_url}')
-
