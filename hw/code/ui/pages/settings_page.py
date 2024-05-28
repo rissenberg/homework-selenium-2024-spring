@@ -132,7 +132,3 @@ class SettingsPage(BasePage):
 
     def click_add_cabinet_save_id_button(self):
         self.click(self.locators.ADD_CABINET_SAVE_ID_BUTTON)
-
-
-
-

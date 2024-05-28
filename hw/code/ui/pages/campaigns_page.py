@@ -35,8 +35,7 @@ class CampaignsPage(BasePage):
         return self.find(self.locators.ERROR).text
 
     def click_continue_button(self):
-        wait = self.wait(10)
-        continue_button = wait.until(EC.visibility_of_element_located(self.locators.CONTINUE_BUTTON))
+        continue_button = self.wait_until(EC.visibility_of_element_located(self.locators.CONTINUE_BUTTON), 10)
         continue_button.click()
 
     def enter_site_url(self, url: str):
@@ -68,8 +67,7 @@ class CampaignsPage(BasePage):
             return False
 
     def select_regions(self):
-        wait = self.wait(10)
-        region_selection = wait.until(EC.visibility_of_element_located(self.locators.REGION_QUICK_SELECTION))
+        region_selection = self.wait_until(EC.visibility_of_element_located(self.locators.REGION_QUICK_SELECTION), 10)
         region_selection.click()
 
     def get_panel_title(self) -> str:

@@ -94,4 +94,3 @@ class TestMainPage(BaseCase):
         cabinet_page.click_forum()
         cabinet_page.switch_to_new_tab()
         assert self.is_opened('https://ads.vk.com/upvote')
-

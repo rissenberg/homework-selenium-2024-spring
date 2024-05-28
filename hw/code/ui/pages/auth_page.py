@@ -8,17 +8,16 @@ class AuthPage(BasePage):
     locators = AuthPageLocators()
 
     def login(self, login, password):
-        wait = self.wait(10)
-        mail_auth_button = wait.until(EC.visibility_of_element_located(self.locators.MAIL_RU_AUTH_BUTTON))
+        mail_auth_button = self.wait_until(EC.visibility_of_element_located(self.locators.MAIL_RU_AUTH_BUTTON), 10)
         mail_auth_button.click()
 
-        login_input = wait.until(EC.visibility_of_element_located(self.locators.MAIL_RU_LOGIN))
+        login_input = self.wait_until(EC.visibility_of_element_located(self.locators.MAIL_RU_LOGIN), 10)
         login_input.clear()
         login_input.send_keys(login)
 
         self.click(self.locators.MAIL_RU_NEXT_BUTTON)
 
-        password_input = wait.until(EC.visibility_of_element_located(self.locators.MAIL_RU_PASSWORD))
+        password_input = self.wait_until(EC.visibility_of_element_located(self.locators.MAIL_RU_PASSWORD), 10)
         password_input.clear()
         password_input.send_keys(password)
 

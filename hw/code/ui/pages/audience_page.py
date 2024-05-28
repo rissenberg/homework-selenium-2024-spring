@@ -16,8 +16,7 @@ class AudiencePage(BasePage):
     MAX_LENGTH_OF_NAME = 255
 
     def click_create_audience_button(self):
-        wait = self.wait(10)
-        create_button = wait.until(EC.visibility_of_element_located(self.locators.CREATE_AUDIENCE_BUTTON))
+        create_button = self.wait_until(EC.visibility_of_element_located(self.locators.CREATE_AUDIENCE_BUTTON), 10)
         create_button.click()
 
     def create_audience_modal_page_is_visible(self) -> bool:
@@ -42,9 +41,8 @@ class AudiencePage(BasePage):
         return self.is_visible(self.locators.ADD_SOURCE_MODAL_PAGE)
 
     def select_source(self, source_name):
-        wait = self.wait(10)
         time.sleep(1)
-        source_item = wait.until(EC.visibility_of_element_located(self.locators.SOURCE_ITEM(source_name)))
+        source_item = self.wait_until(EC.visibility_of_element_located(self.locators.SOURCE_ITEM(source_name)), 10)
         source_item.click()
 
     def get_source_card_content(self) -> str:
@@ -59,6 +57,5 @@ class AudiencePage(BasePage):
         key_phrases_input.send_keys(key_phrase)
 
     def click_modal_page_submit_button(self):
-        wait = self.wait(10)
-        elem = wait.until(EC.visibility_of_element_located(self.locators.MODAL_PAGE_SUBMIT_BUTTON))
+        elem = self.wait_until(EC.visibility_of_element_located(self.locators.MODAL_PAGE_SUBMIT_BUTTON), 10)
         elem.click()
