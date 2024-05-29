@@ -26,7 +26,7 @@ class AudiencePage(BasePage):
         return self.find(self.locators.AUDIENCE_NAME_INPUT).get_attribute('value')
 
     def enter_audience_name(self, audience_name: str):
-        elem = self.find(self.locators.AUDIENCE_NAME_INPUT)
+        elem = self.wait_until(EC.visibility_of_element_located(self.locators.AUDIENCE_NAME_INPUT))
         elem.clear()
         elem.send_keys(audience_name)
         elem.send_keys(Keys.ENTER)
@@ -61,11 +61,12 @@ class AudiencePage(BasePage):
         elem.click()
 
     def click_delete_audience_button(self):
-        delete_button = self.wait_until(EC.visibility_of_element_located(self.locators.DELETE_AUDIENCE_BUTTON), 10)
-        delete_button.click()
-        delete_confirm_button = self.wait_until(EC.visibility_of_element_located(self.locators.DELETE_CONFIRM_BUTTON), 10)
-        delete_confirm_button.click()
+        self.hover(self.locators.AUDIENCE_OPTIONS_BUTTON)
+        del_button = self.wait_until(EC.visibility_of_element_located(self.locators.AUDIENCE_DELETE_BUTTON))
+        del_button.click()
+        self.click(self.locators.AUDIENCE_CONFIRM_DELETE_BUTTON)
 
     def click_edit_audience_button(self):
-        edit_button = self.wait_until(EC.visibility_of_element_located(self.locators.EDIT_AUDIENCE_BUTTON), 10)
+        self.hover(self.locators.AUDIENCE_OPTIONS_BUTTON)
+        edit_button = self.wait_until(EC.visibility_of_element_located(self.locators.AUDIENCE_EDIT_BUTTON))
         edit_button.click()

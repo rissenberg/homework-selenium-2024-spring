@@ -5,6 +5,8 @@ from base import BaseCase
 AUDIENCE_NAME = 'Обеспечение качества ' + datetime.now().strftime('%d-%m-%Y')
 SOURCE_NAME = 'Ключевые фразы'
 KEY_PHRASE = 'vk-qa'
+AUDIENCE_NEW_NAME = 'Новое название'
+AUDIENCE_TO_DELETE_NAME = 'Будет удалено'
 
 
 @pytest.fixture
@@ -44,12 +46,16 @@ class TestAudiencePage(BaseCase):
         source_card_content = audience_page.get_source_card_content()
         assert KEY_PHRASE in source_card_content
 
-    def test_edit_audience(self, create_audience_modal_page, audience_page):
-        audience_page.edit_audience()
+    def test_edit_audience(self, key_phrases_source, audience_page):
         audience_page.enter_audience_name(AUDIENCE_NAME)
+        # audience_page.click_modal_page_submit_button()
+        audience_page.click_edit_audience_button()
+        audience_page.enter_audience_name(AUDIENCE_NEW_NAME)
         audience_page.click_modal_page_submit_button()
-        assert audience_page.get_created_audience_title() == AUDIENCE_NAME
+        assert audience_page.get_created_audience_title() == AUDIENCE_NEW_NAME
 
-    def test_delete_audience(self, create_audience_modal_page, audience_page):
+    def test_delete_audience(self, key_phrases_source, audience_page):
+        audience_page.enter_audience_name(AUDIENCE_TO_DELETE_NAME)
+        audience_page.click_modal_page_submit_button()
         audience_page.click_delete_audience_button()
-        assert not audience_page.get_created_audience_title()
+        assert audience_page.get_created_audience_title() != AUDIENCE_TO_DELETE_NAME

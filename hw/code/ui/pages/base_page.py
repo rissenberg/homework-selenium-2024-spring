@@ -1,5 +1,3 @@
-import time
-
 import allure # type: ignore
 from selenium.common import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
@@ -8,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
 from ui.locators.base_page_locators import BasePageLocators
+import time
 
 
 class PageNotOpenedException(Exception):
@@ -71,6 +70,7 @@ class BasePage(object):
     def hover(self, locator, timeout=None):
         elem = self.wait(timeout).until(ec.presence_of_element_located(locator))
         ActionChains(self.driver).move_to_element(elem).perform()
+        time.sleep(1)
 
     def is_not_visible(self, locator, timeout=None):
         try:

@@ -35,6 +35,10 @@ class AudiencePageLocators(BasePageLocators):
 
     EDIT_AUDIENCE_BUTTON = (By.XPATH, "//button[@data-testid='edit-audience']")
 
-    DELETE_AUDIENCE_BUTTON = (By.XPATH, "//button[@data-testid='delete-audience']")
+    AUDIENCE_OPTIONS_BUTTON = (By.XPATH, "//*[contains(@class, 'NameCell_details__')]")
 
-    DELETE_CONFIRM_BUTTON = (By.XPATH, "//button[@data-testid='delete-audience']")
+    AUDIENCE_DELETE_BUTTON = (By.XPATH, "//*[contains(@class, 'vkuiActionSheetItem__')]//*[text()='Удалить']")
+
+    AUDIENCE_CONFIRM_DELETE_BUTTON = (By.XPATH, "//*[contains(@class, 'ModalConfirm_wrapper__')]//*[text()='Удалить']")
+
+    AUDIENCE_EDIT_BUTTON = (By.XPATH, "//*[contains(@class, 'vkuiActionSheetItem__')]//*[text()='Редактировать']")
