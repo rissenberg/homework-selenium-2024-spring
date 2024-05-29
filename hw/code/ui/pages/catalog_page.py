@@ -7,6 +7,11 @@ class CatalogPage(BasePage):
     url = 'https://ads.vk.com/hq/ecomm/catalogs'
     locators = CatalogPageLocators()
 
+    ERROR_INVALID_URL = 'Не удалось выполнить запрос по HTTP'
+    ERROR_EMPTY_URL = 'Обязательное поле'
+    ERROR_NO_HTTP = 'Необходимо указать протокол http(s)'
+    ERROR_NOT_REAL_MARKET = 'Введите корректную ссылку на страницу продавца на поддерживаемом маркетпласе'
+
     def click_cancel_education_button(self):
         self.click(self.locators.CANCEL_EDUCATION_BUTTON)
 
