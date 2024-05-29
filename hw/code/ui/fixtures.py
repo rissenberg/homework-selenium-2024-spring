@@ -5,12 +5,6 @@ from ui.pages.base_page import BasePage
 from ui.pages.auth_page import AuthPage
 from ui.pages.cabinet_page import CabinetPage
 from ui.pages.audience_page import AudiencePage
-from ui.pages.main_page import MainPage
-from ui.pages.news_page import NewsPage
-from ui.pages.cases_page import CasesPage
-from ui.pages.events_page import EventsPage
-from ui.pages.forum_page import ForumsPage
-from ui.pages.campaigns_page import CampaignsPage
 from ui.pages.settings_page import SettingsPage
 from ui.pages.lead_page import LeadPage
 from ui.pages.navbar_page import NavbarPage
@@ -54,39 +48,10 @@ def base_page(driver):
     return BasePage(driver=driver)
 
 
-@pytest.fixture
-def main_page(driver):
-    return MainPage(driver=driver)
-
-
-@pytest.fixture
-def news_page(driver):
-    driver.get(NewsPage.url)
-    return NewsPage(driver=driver)
-
-
-@pytest.fixture
-def cases_page(driver):
-    driver.get(CasesPage.url)
-    return CasesPage(driver=driver)
-
-
-@pytest.fixture
-def events_page(driver):
-    driver.get(EventsPage.url)
-    return EventsPage(driver=driver)
-
-
-@pytest.fixture
-def forum_page(driver):
-    driver.get(ForumsPage.url)
-    return ForumsPage(driver=driver)
-
-
 @pytest.fixture(scope='session')
-def credentials_without_auth():
+def credentials_without_cabinet():
     load_dotenv()
-    return os.getenv('LOGIN_WITHOUT_AUTH'), os.getenv('PASSWORD_WITHOUT_AUTH')
+    return os.getenv('LOGIN_WITHOUT_CABINET'), os.getenv('PASSWORD_WITHOUT_CABINET')
 
 
 @pytest.fixture(scope='session')
@@ -101,7 +66,7 @@ def auth_page(driver):
 
 
 @pytest.fixture
-def cabinet_page(driver, credentials_with_auth, auth_page):
+def cabinet_page(driver, credentials_with_cabinet, auth_page):
     driver.get(CabinetPage.url)
     auth_page.login(*credentials_with_auth)
     return CabinetPage(driver=driver)
@@ -122,13 +87,3 @@ def campaigns_page(driver, cabinet_page):
 def settings_page(driver, cabinet_page):
     driver.get(SettingsPage.url)
     return SettingsPage(driver=driver)
-
-@pytest.fixture
-def navbar_page(driver):
-    driver.get(NavbarPage.url)
-    return NavbarPage(driver=driver)
-
-@pytest.fixture
-def lead_page(driver, cabinet_page):
-    driver.get(LeadPage.url)
-    return LeadPage(driver=driver)
