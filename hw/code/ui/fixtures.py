@@ -7,6 +7,7 @@ from ui.pages.cabinet_page import CabinetPage
 from ui.pages.audience_page import AudiencePage
 from ui.pages.settings_page import SettingsPage
 from ui.pages.budget_page import BudgetPage
+from ui.pages.catalog_page import CatalogPage
 
 
 import os
@@ -83,7 +84,14 @@ def settings_page(driver, cabinet_page):
     driver.get(SettingsPage.url)
     return SettingsPage(driver=driver)
 
+
 @pytest.fixture
 def budget_page(driver, cabinet_page):
     driver.get(BudgetPage.url)
     return BudgetPage(driver=driver)
+
+
+@pytest.fixture
+def catalog_page(driver, cabinet_page):
+    driver.get(CatalogPage.url)
+    return CatalogPage(driver=driver)
