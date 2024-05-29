@@ -59,3 +59,13 @@ class AudiencePage(BasePage):
     def click_modal_page_submit_button(self):
         elem = self.wait_until(EC.visibility_of_element_located(self.locators.MODAL_PAGE_SUBMIT_BUTTON), 10)
         elem.click()
+
+    def click_delete_audience_button(self):
+        delete_button = self.wait_until(EC.visibility_of_element_located(self.locators.DELETE_AUDIENCE_BUTTON), 10)
+        delete_button.click()
+        delete_confirm_button = self.wait_until(EC.visibility_of_element_located(self.locators.DELETE_CONFIRM_BUTTON), 10)
+        delete_confirm_button.click()
+
+    def click_edit_audience_button(self):
+        edit_button = self.wait_until(EC.visibility_of_element_located(self.locators.EDIT_AUDIENCE_BUTTON), 10)
+        edit_button.click()

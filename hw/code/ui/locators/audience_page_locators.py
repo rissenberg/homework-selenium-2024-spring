@@ -32,3 +32,9 @@ class AudiencePageLocators(BasePageLocators):
     )
 
     CREATED_AUDIENCE_TITLE = (By.XPATH, "//*[contains(@class, 'NameCell_wrapper__')]/h5")
+
+    EDIT_AUDIENCE_BUTTON = (By.XPATH, "//button[@data-testid='edit-audience']")
+
+    DELETE_AUDIENCE_BUTTON = (By.XPATH, "//button[@data-testid='delete-audience']")
+
+    DELETE_CONFIRM_BUTTON = (By.XPATH, "//button[@data-testid='delete-audience']")

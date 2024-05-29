@@ -43,3 +43,13 @@ class TestAudiencePage(BaseCase):
     def test_add_key_phrase(self, key_phrases_source, audience_page):
         source_card_content = audience_page.get_source_card_content()
         assert KEY_PHRASE in source_card_content
+
+    def test_edit_audience(self, create_audience_modal_page, audience_page):
+        audience_page.edit_audience()
+        audience_page.enter_audience_name(AUDIENCE_NAME)
+        audience_page.click_modal_page_submit_button()
+        assert audience_page.get_created_audience_title() == AUDIENCE_NAME
+
+    def test_delete_audience(self, create_audience_modal_page, audience_page):
+        audience_page.click_delete_audience_button()
+        assert not audience_page.get_created_audience_title()
